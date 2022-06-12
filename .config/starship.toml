@@ -1,0 +1,46 @@
+add_newline = false
+format = '[\[](bright-black) $username[@](red)$hostname [\]](bright-black) [::](bright-black) $time [>>](bright-black) $directory $nodejs$rust$git_branch$character'
+
+continuation_prompt = "[::](bright-black) "
+
+[git_branch]
+disabled = false
+format = "[$branch](orange) "
+
+# GENERAL
+[character]
+success_symbol = "[λ](yellow)"
+error_symbol="[µ](red)"
+
+[status]
+disabled=false
+
+[time]
+disabled = false
+format = '[$time](dimmed)'
+
+[username]
+disabled = false
+show_always = true
+format = "[$user](blue)"
+
+[hostname]
+ssh_only=false
+format="[$hostname](dimmed blue)"
+
+[directory]
+truncate_to_repo = true
+use_os_path_sep = false
+format = "[$path](cyan)"
+# GENERAL-END
+
+# LANGS
+[nodejs]
+disabled=false
+format='\([js](yellow)/[ts](lightblue)\) '
+
+[rust]
+format='\([rust]($style)\) '
+version_format=""
+style="bold red"
+# LANGS-END
