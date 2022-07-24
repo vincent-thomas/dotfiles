@@ -1,0 +1,44 @@
+{
+	"analytics-uuid": "a2426dba-0978-41aa-b79b-fc7f05d7ecbf",
+	"motd": {
+		"cloudBuildErrorAfter": 1594252800000,
+		"cloudBuildWarnAfter": 1590019200000,
+		"defaultNode10After": 1594252800000,
+		"minVersion": "3.0.5",
+		"node8DeploysDisabledAfter": 1613390400000,
+		"node8RuntimeDisabledAfter": 1615809600000,
+		"node8WarnAfter": 1600128000000,
+		"fetched": 1652022961590
+	},
+	"usage": false,
+	"user": {
+		"iss": "accounts.google.com",
+		"azp": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"aud": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"sub": "117996841346807746277",
+		"email": "vincent.nathan.thomas@gmail.com",
+		"email_verified": true,
+		"at_hash": "GEB09xN_8onVm8MNQyWp_A",
+		"iat": 1652022988,
+		"exp": 1652026588
+	},
+	"tokens": {
+		"expires_at": 1652026694822,
+		"refresh_token": "1//0ciwvEc9pyXOgCgYIARAAGAwSNwF-L9IrkE4sLz8py8FINUw-kawAr3ldJ6o9U5WzZb2UuMA1KFp1apb2mywM1qTSRAt-XiM5WEQ",
+		"scopes": [
+			"email",
+			"https://www.googleapis.com/auth/cloud-platform",
+			"https://www.googleapis.com/auth/cloudplatformprojects.readonly",
+			"https://www.googleapis.com/auth/firebase",
+			"openid"
+		],
+		"access_token": "ya29.A0ARrdaM-qKlBylB63i2LoetiVDzwmOgJ1z0EGHhEVUmIgFMzeaRCXmaR3hiak-jkEIyF6PLeK6uUX3WWiHpJT1J2UYddRI-BCisuwEu8lFAsQPc9jvAGUeQrTdd6vWvFQC4E5uBruyW1Y_TmjNnoRU5AFW7UUXbSJflGf",
+		"expires_in": 3599,
+		"scope": "https://www.googleapis.com/auth/firebase openid https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/cloudplatformprojects.readonly",
+		"token_type": "Bearer",
+		"id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImIxYTgyNTllYjA3NjYwZWYyMzc4MWM4NWI3ODQ5YmZhMGExYzgwNmMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE3OTk2ODQxMzQ2ODA3NzQ2Mjc3IiwiZW1haWwiOiJ2aW5jZW50Lm5hdGhhbi50aG9tYXNAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJiVTFtS0Z2Mi1XNE02VGRFaGtmWFV3IiwiaWF0IjoxNjUyMDIzMDk2LCJleHAiOjE2NTIwMjY2OTZ9.qzf-QopFZoSWKFl6G30uj5yLWt4kOXhg2i4eK4rrsgPoRH3_u4jcNPFXdbC_cdyY_MNTLJ233WqE7rAYU2iL4xPbwJFjjSdYal6ubD76Sa1Q0miUv5225eNAwX6ThshWdBHNDF8DN3MMUdSLdAswK9wNwajtvknKM6ufn56BsLgaF_0zI0JpX4wY6-YnaIhdYNW3OogZowLIPYNnczs-5wbbHAEKJJJYbfO23H-qcFivUDcXm_nvLhwbrcZp9XoRSEK_9GCbWOzoGeJN-crb3LYQ_U-7P1qzDo4IevOtGHPsPt36OcMG41PuQdGEc9ErL-UqCJ72w_MQtHUgr-k8IQ"
+	},
+	"activeProjects": {
+		"C:\\Users\\vincent\\coding\\coming-soon-site": "pureforms-backend"
+	}
+}

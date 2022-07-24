@@ -1,0 +1,9 @@
+{
+	"telemetry": {
+		"enabled": true,
+		"machineId": "c6b685da-7e4a-4467-af5a-364f0c298323"
+	},
+	"cli": {
+		"packageManager": "npm"
+	}
+}

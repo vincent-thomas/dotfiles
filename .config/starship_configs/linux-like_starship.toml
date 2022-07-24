@@ -1,3 +1,4 @@
+# CONFhG FOR https://starship.rs
 add_newline = false
 format = '[\[](bright-black) $username[@](red)$hostname [\]](bright-black) [::](bright-black) $time [>>](bright-black) $directory $nodejs$rust$git_branch$character'
 
@@ -37,7 +38,7 @@ format = "[$path](cyan)"
 # LANGS
 [nodejs]
 disabled=false
-format='\([js](yellow)/[ts](bright-blue)\) '
+format='\([js](yellow)/[ts](lightblue)\) '
 
 [rust]
 format='\([rust]($style)\) '
