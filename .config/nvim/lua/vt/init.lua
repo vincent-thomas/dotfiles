@@ -1,3 +1,3 @@
-require("vt.remap")
-require("vt.lazy")
 require("vt.core")
+require("vt.lazy")
+require("vt.theme")

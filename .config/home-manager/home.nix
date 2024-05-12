@@ -43,6 +43,11 @@
       init = {
         defaultBranch = "main";
       };
+      url = {
+        "ssh://git@github.com/" = {
+          insteadOf = ["https://github.com/"];
+        };
+      };
     };
   };
 
@@ -64,6 +69,7 @@
     rustup
     nodejs_20
     stow
+    unzip
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
