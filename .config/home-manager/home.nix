@@ -19,14 +19,6 @@
 
   programs.zsh = {
     enable = true;
-    syntaxHighlighting.enable = true;
-    autocd = true;
-    enableCompletion = true;
-    shellAliases = {
-      ls = "eza -al";
-      v = "nvim";
-      c = "z";
-    };
   };
 
   programs.zoxide = {
