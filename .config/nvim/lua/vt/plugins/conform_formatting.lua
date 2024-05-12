@@ -1,6 +1,7 @@
 return {
-  "sbdchd/neoformat",
+  "stevearc/conform.nvim",
   event = {"BufWritePre", "BufNewFile"},
+  cmd = { "ConformInfo" },
   config = function()
     local conform = require("conform")
 
@@ -24,3 +25,4 @@ return {
     })
   end
 }
+

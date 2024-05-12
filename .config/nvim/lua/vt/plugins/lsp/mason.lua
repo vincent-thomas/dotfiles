@@ -22,7 +22,7 @@ return {
       ensure_installed = {
         "tsserver",
         "lua_ls",
-        "rust-analyzer",
+        "rust_analyzer",
       }
     })
   end

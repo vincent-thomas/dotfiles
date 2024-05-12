@@ -1,5 +1,5 @@
 return {
-  "nevim/nvim-lspconfig",
+  "neovim/nvim-lspconfig",
   event = {"BufReadPre", "BufNewFile"},
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
@@ -10,25 +10,24 @@ return {
   },
   config = function()
     local lspconfig = require("lspconfig")
+    local mason_lspconfig = require("mason-lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-    local opts = {noremap, silent = true}
+    vim.api.nvim_create_autocmd("LspAttach", {
+      group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+      callback = function(ev)
+	local opts = { buffer = ev.buf, silent = true }
 
-    local on_attach = function(client, bufnr)
-      opts.buffer = bufnr
+	-- Definition
+	vim.keymap.set("n", "dg", vim.lsp.buf.declaration, opts)
+	vim.keymap.set("n", "<leader>dr", vim.lsp.buf.rename, opts)
+	vim.keymap.set("n", "<leader>dh", vim.lsp.buf.hover, opts)
 
-      -- Definition
-      vim.keymap.set("n", "dg", vim.lsp.buf.declaration, opts)
-      vim.keymap.set("n", "<leader>dr", vim.lsp.buf.rename, opts)
-      vim.keymap.set("n", "<leader>dh", vim.lsp.buf.hover, opts)
-
-      -- Telescope
-      vim.keymap.set("n", "<leader>fr", "<cmd>Telescope lsp_references<CR>", opts)
-      vim.keymap.set("n", "<leader>fi", "<cmd>Telescope lsp_imlementations<CR>", opts)
-
-
-
-    end
+	-- Telescope
+	vim.keymap.set("n", "<leader>fr", "<cmd>Telescope lsp_references<CR>", opts)
+	vim.keymap.set("n", "<leader>fi", "<cmd>Telescope lsp_imlementations<CR>", opts)
+      end,
+    })
 
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
@@ -43,8 +42,20 @@ return {
       function(server_name)
         lspconfig[server_name].setup({
           capabilities = capabilities,
-          on_attach = on_attach,
         })
+      end,
+
+      ["rust_analyzer"] = function()
+	lspconfig["rust_analyzer"].setup({
+	  capabilities = capabilities,
+	    settings = {
+	      ["rust-analyzer"] = {
+		check = {
+		  command = "clippy",
+		},
+	      },
+	    },
+	})
       end,
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
