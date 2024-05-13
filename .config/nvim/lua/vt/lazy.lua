@@ -17,7 +17,7 @@ require("lazy").setup(
   {
     { import = "vt.plugins" },
     { import = "vt.plugins.cmp"},
-    { import = "vt.plugins.lsp"}
+--    { import = "vt.plugins.lsp"}
   },
   {
     checker = {
