@@ -21,4 +21,4 @@ vim.opt.colorcolumn = "80"
 vim.opt.termguicolors = true
 
 vim.cmd("set number relativenumber")
-
+vim.cmd("set noshowmode")

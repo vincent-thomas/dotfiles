@@ -26,11 +26,15 @@ mkdir -p "$(dirname "$HISTFILE")"
 # unsetopt EXTENDED_HISTORY
 
 
-eval "$(zoxide init zsh )"
+eval "$(zoxide init zsh)"
 
 if [[ $TERM != "dumb" ]]; then
   eval "$(starship init zsh)"
 fi
 
 # Aliases
-alias l='eza'
+alias l='eza -l'
+
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
