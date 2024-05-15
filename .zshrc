@@ -1,5 +1,5 @@
 
-# typeset -U path cdpath fpath manpath
+typeset -U path cdpath fpath manpath
 
 # HELPDIR="/nix/store/nxm7lxd5kcfzrvdkdvvnp3s1bxa6j3mi-zsh-5.9/share/zsh/$ZSH_VERSION/help"
 
@@ -22,7 +22,7 @@ mkdir -p "$(dirname "$HISTFILE")"
 # unsetopt HIST_IGNORE_ALL_DUPS
 # setopt HIST_IGNORE_SPACE
 # sunsetopt HIST_EXPIRE_DUPS_FIRST
-# setopt SHARE_HISTORY
+setopt SHARE_HISTORY
 # unsetopt EXTENDED_HISTORY
 
 
@@ -38,4 +38,4 @@ alias l='eza -l'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
-alias gp='tmux new -c "$(find /home/vt/p -name .git -type d -prune | sed s/"\/.git"// | fzf)" "nvim"'
+alias gp='. $HOME/scripts/goto-project.sh'
