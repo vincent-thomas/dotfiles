@@ -86,15 +86,18 @@ return {
         callback = function(ev)
           local opts = { buffer = ev.buf, silent = true }
 
+          local tb = require("telescope.builtin")
+
           -- Definition
-          vim.keymap.set("n", "<leader>dg", vim.lsp.buf.declaration, opts)
           vim.keymap.set("n", "<leader>dr", vim.lsp.buf.rename, opts)
           vim.keymap.set("n", "<leader>dh", vim.lsp.buf.hover, opts)
+          -- 'c' is not available, so the best is d for 'definition'
           vim.keymap.set("n", "<leader>da", vim.lsp.buf.code_action, opts)
 
-          -- Telescope
-          vim.keymap.set("n", "<leader>fr", require("telescope.builtin").lsp_references, opts)
-          vim.keymap.set("n", "<leader>fi", vim.lsp.buf.implementation, opts)
+          -- Find
+          vim.keymap.set("n", "<leader>fi", tb.lsp_implementations, opts)
+          vim.keymap.set("n", "<leader>fb", tb.buffers, opts)
+          vim.keymap.set("n", "<leader>fd", vim.lsp.buf.declaration, opts)
         end,
       })
     end,

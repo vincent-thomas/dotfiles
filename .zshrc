@@ -26,16 +26,21 @@ setopt SHARE_HISTORY
 # unsetopt EXTENDED_HISTORY
 
 
-eval "$(zoxide init zsh)"
 
-if [[ $TERM != "dumb" ]]; then
-  eval "$(starship init zsh)"
-fi
+export EDITOR="nvim"
+
 
 # Aliases
-alias l='eza -l'
+alias ls='eza -l'
 
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias gp='. $HOME/scripts/goto-project.sh'
+alias cd="z"
+
+eval "$(zoxide init zsh)"
+
+if [[ $TERM != "dumb" ]]; then
+  eval "$(starship init zsh)"
+fi

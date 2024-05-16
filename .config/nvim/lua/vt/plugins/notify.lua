@@ -1,6 +1,6 @@
 return {
-  "rcarriga/nvim-notify",
+  "vigoux/notifier.nvim",
   config = function()
-    vim.notify = require("notify")
+    require("notifier").setup()
   end,
 }

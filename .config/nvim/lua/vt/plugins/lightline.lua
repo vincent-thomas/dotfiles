@@ -9,7 +9,7 @@ return {
           { "readonly", "filename", "modified" },
         },
         right = {
-          { "lineinfo" },
+          -- { "lineinfo" },
           { "percent" },
           { "filetype" },
         },
