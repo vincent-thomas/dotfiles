@@ -25,10 +25,8 @@ mkdir -p "$(dirname "$HISTFILE")"
 setopt SHARE_HISTORY
 # unsetopt EXTENDED_HISTORY
 
-
-
+export HOME="/home/vt"
 export EDITOR="nvim"
-
 
 # Aliases
 alias ls='eza -l'
@@ -38,9 +36,20 @@ alias vi='nvim'
 alias vim='nvim'
 alias gp='. $HOME/scripts/goto-project.sh'
 alias cd="z"
+alias clear="clear && sh $HOME/scripts/colorscripts/colorscripts.sh --random"
 
 eval "$(zoxide init zsh)"
 
 if [[ $TERM != "dumb" ]]; then
   eval "$(starship init zsh)"
 fi
+
+sh $HOME/scripts/colorscripts/colorscripts.sh --random
+
+# pnpm
+export PNPM_HOME="/home/vt/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

@@ -1,6 +1,23 @@
+local packages = {
+
+  -- LSP
+  "rust-analyzer",
+  "lua-language-server",
+  "typescript-language-server",
+  "dockerfile-language-server",
+  "prisma-language-server",
+
+  -- Formatters
+  "stylua",
+  "biome",
+}
+
 return {
   {
     "williamboman/mason.nvim",
+    dependencies = {
+      "frostplexx/mason-bridge.nvim",
+    },
     config = function()
       local registry = require("mason-registry")
       require("mason").setup({
@@ -13,19 +30,7 @@ return {
         },
       })
 
-      local packages = {
-
-        -- LSP
-        "rust-analyzer",
-        "lua-language-server",
-        "typescript-language-server",
-        "dockerfile-language-server",
-        "prisma-language-server",
-
-        -- Formatters
-        "stylua",
-        "biome",
-      }
+      require("mason-bridge").setup()
 
       for i = 1, #packages do
         if registry.is_installed(packages[i]) == false then
@@ -33,6 +38,25 @@ return {
           registry.get_package(packages[i]):install()
         end
       end
+    end,
+  },
+  {
+    "stevearc/conform.nvim",
+    event = { "BufWritePre", "BufNewFile" },
+    cmd = { "ConformInfo" },
+    config = function()
+      local conform = require("conform")
+
+      conform.setup({
+        formatters_by_ft = require("mason-bridge").get_formatters(),
+        format_on_save = {
+          lsp_fallback = true,
+          async = false,
+          timeout_ms = 500,
+        },
+        log_level = vim.log.levels.ERROR,
+        notify_on_error = true,
+      })
     end,
   },
   {
