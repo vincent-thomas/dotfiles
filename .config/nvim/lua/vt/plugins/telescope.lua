@@ -30,6 +30,7 @@ return {
 
     vim.keymap.set("n", "<leader>ff", t.find_files, { desc = "Fuzzy find files in cwd" })
     vim.keymap.set("n", "<leader>fi", t.lsp_implementations, { desc = "Fuzzy find files in cwd" })
+    vim.keymap.set("n", "<leader>fe", t.diagnostics, { desc = "Fuzzy find files in cwd" })
     vim.keymap.set("n", "<leader>fr", t.lsp_references, { desc = "Fuzzy find files in cwd" })
     vim.keymap.set("n", "<leader>fd", t.lsp_definitions, { desc = "Fuzzy find files in cwd" })
     vim.keymap.set("n", "<leader>ff", t.find_files, { desc = "Fuzzy find files in cwd" })

@@ -1,3 +1,5 @@
 {
-	"project_directory": "/home/vt/p"
+	"project_directory": "/home/admin/p",
+	"editor": "neovim",
+	"searcher": "fzf"
 }

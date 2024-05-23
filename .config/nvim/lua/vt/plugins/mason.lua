@@ -6,7 +6,7 @@ local packages = {
   "typescript-language-server",
   "dockerfile-language-server",
   "prisma-language-server",
-
+  "ruby-lsp",
   -- Formatters
   "stylua",
   "biome",
@@ -78,6 +78,11 @@ return {
       })
 
       lspconfig.dockerls.setup({
+        capabilities,
+      })
+
+
+      lspconfig.ruby_lsp.setup({
         capabilities,
       })
 
