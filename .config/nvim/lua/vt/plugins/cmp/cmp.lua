@@ -1,4 +1,3 @@
-
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
@@ -9,36 +8,31 @@ return {
     "saadparwaiz1/cmp_luasnip",
   },
   config = function()
-
     local cmp = require("cmp")
-    local luasnip = require("luasnip")
 
---     require("copilot_cmp").setup()
+    require("copilot_cmp").setup()
 
-    cmp.setup {
+    cmp.setup({
       compltion = {
-        completeopt = "menu,menuone,preview,noselect"
+        completeopt = "menu,menuone,preview,noselect",
       },
       snippet = {
         expand = function(args)
           require("luasnip").lsp_expand(args.body)
-        end
+        end,
       },
       mapping = cmp.mapping.preset.insert({
         ["<C-Space>"] = cmp.mapping.complete(),
-        ["<Tab>"] = cmp.mapping.confirm { select = true }
+        ["<Tab>"] = cmp.mapping.confirm({ select = true }),
       }),
 
-      sources = cmp.config.sources(
-        {
-          { name = "copilot"  },
-          { name = "nvim_lsp" },
-          { name = "luasnip" },
-          { name = "buffer" },
-          { name = "path" },
-        }, 
-        { name = "buffer" }
-      )
-    }
-  end
+      sources = cmp.config.sources({
+        { name = "copilot" },
+        { name = "nvim_lsp" },
+        { name = "luasnip" },
+        { name = "buffer" },
+        { name = "path" },
+      }, { name = "buffer" }),
+    })
+  end,
 }

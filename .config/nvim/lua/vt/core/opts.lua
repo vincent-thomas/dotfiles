@@ -20,6 +20,8 @@ vim.opt.colorcolumn = "80"
 
 vim.opt.termguicolors = true
 
-vim.cmd("set number relativenumber")
+vim.cmd("set number")
 vim.cmd("set noshowmode")
+vim.opt.foldmethod = "indent"
+vim.cmd("set foldlevel=2")
 vim.api.nvim_set_keymap("n", ";", ":", { noremap = true, silent = false })
