@@ -51,7 +51,7 @@ function M.file_search()
         end,
 
         height = function(_, _, max_lines)
-          return math.min(max_lines, 30)
+          return math.min(max_lines, 25)
         end,
       },
     },
