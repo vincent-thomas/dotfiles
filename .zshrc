@@ -1,8 +1,7 @@
 
 typeset -U path cdpath fpath manpath
 
-# HELPDIR="/nix/store/nxm7lxd5kcfzrvdkdvvnp3s1bxa6j3mi-zsh-5.9/share/zsh/$ZSH_VERSION/help"
-
+. ~/.cargo/env
 
 # calling it twice causes slight start up slowdown
 # as all $fpath entries will be traversed again.
@@ -52,6 +51,3 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-#
-
-source <(fzf --zsh)
