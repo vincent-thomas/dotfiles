@@ -21,7 +21,9 @@ function M.setup()
     "typescript-language-server",
     "dockerfile-language-server",
     "prisma-language-server",
-    "ruby-lsp",
+    "pyright",
+    "marksman",
+
     -- Formatters
     "stylua",
     "biome",

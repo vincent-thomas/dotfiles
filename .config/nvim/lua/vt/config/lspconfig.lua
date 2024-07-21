@@ -18,7 +18,7 @@ function M.setup()
     capabilities,
   })
 
-  lspconfig.ruby_lsp.setup({
+  lspconfig.pyright.setup({
     capabilities,
   })
 
@@ -45,6 +45,8 @@ function M.setup()
       },
     },
   })
+
+  lspconfig.marksman.setup({ capabilities })
 end
 
 function M.on_mount(func)

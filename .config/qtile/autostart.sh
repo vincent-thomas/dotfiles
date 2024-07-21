@@ -1,5 +1,5 @@
 #!/bin/bash
-picom --backend glx &
+picom &
 nitrogen --restore &
 sh ~/.config/polybar/launch.sh &
 

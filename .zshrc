@@ -3,6 +3,8 @@ typeset -U path cdpath fpath manpath
 
 . ~/.cargo/env
 
+
+
 # calling it twice causes slight start up slowdown
 # as all $fpath entries will be traversed again.
 # autoload -U compinit && compinit
@@ -43,6 +45,10 @@ if [[ $TERM != "dumb" ]]; then
 fi
 
 sh $HOME/scripts/colorscripts/colorscripts.sh --random
+
+path+=("/home/vincent/.local/bin")
+
+export PATH
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"

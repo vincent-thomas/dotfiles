@@ -51,6 +51,7 @@ return {
         vim.keymap.set("n", "<leader>fi", tb.lsp_implementations, opts)
         vim.keymap.set("n", "<leader>fb", tb.buffers, opts)
         vim.keymap.set("n", "<leader>fd", vim.lsp.buf.declaration, opts)
+        vim.keymap.set("n", "<leader>fe", tb.diagnostics, opts)
       end)
     end,
   },
