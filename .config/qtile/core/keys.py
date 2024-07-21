@@ -1,6 +1,6 @@
 from libqtile.config import Click, Drag, Key, Match 
 from libqtile.lazy import lazy
-from core.configuration import mod1, mod2, terminal, browser
+from core.configuration import mod1, mod2, terminal, browser, file_manager
 from utils.groups import GroupBuilder, create_group_keybindings
 from utils.applaunching import create_app_binds, SpawnLaunching
 
@@ -38,6 +38,7 @@ keys = [
 
 app_binds = [
     SpawnLaunching("b", browser),
+    SpawnLaunching("e", file_manager),
     SpawnLaunching("t", terminal),
     SpawnLaunching("Return", "rofi -show drun -show-icons"),
 ]

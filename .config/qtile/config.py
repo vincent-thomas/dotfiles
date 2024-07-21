@@ -3,87 +3,89 @@ from libqtile.config import Click, Drag, Key, Match
 from libqtile.lazy import lazy
 import os
 import subprocess
-from vt.groups import GroupBuilder, create_group_keybindings
-from vt.applaunching import create_app_binds, SpawnLaunching
-
+# from vt.groups import GroupBuilder, create_group_keybindings
+# from vt.applaunching import create_app_binds, SpawnLaunching
+from core.keys import keys, groups
 from core.layouts import layouts
 from core.screens import screens
+from core.theme import theme
 
 mod = "mod4"
 alt = "mod1"
 terminal = "wezterm"
 browser = "firefox"
 
+
 def start_deps():
     home = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.Popen([home])
 
 start_deps()
-
-keys = [
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
-    # Grow windows. If current window is on the edge of screen and direction
-    # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
-    Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
-   
-    Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod], "f", lazy.next_layout(), desc="Toggle between layouts"),
-    Key(
-        [mod, "control"],
-        "f",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
-    Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
-    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-]
-
-app_binds = [
-    SpawnLaunching("b", browser),
-    SpawnLaunching("t", terminal),
-    SpawnLaunching("Return", "rofi -show drun -show-icons"),
-]
-
-keys.extend(create_app_binds(mod, app_binds))
-
-groups = [
-    GroupBuilder(key = "z", name = "term", layout = "monadtall"),
-    GroupBuilder(key = "x", name = "tv", layout ="monadtall"),
-    GroupBuilder(key = "c", name ="www", layout = "monadtall"),
-    GroupBuilder(key = "v", name = "music",layout = "monadtall"),
-]
-
-
-keys.extend(create_group_keybindings(alt, groups))
-
-theme = {
-  "border_focus": "#4B6A88",
-  "border_width": 4,
-  "border_normal": "#3E4451",
-  "margin": 8,
-}
-
+#
+# keys = [
+#     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
+#     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
+#     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
+#     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+#
+#     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
+#     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+#     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
+#     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+#     # Grow windows. If current window is on the edge of screen and direction
+#     # will be to screen edge - window would shrink.
+#     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
+#     Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+#     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
+#     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+#     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
+#    
+#     Key([mod], "c", lazy.window.kill(), desc="Kill focused window"),
+#     Key([mod], "f", lazy.next_layout(), desc="Toggle between layouts"),
+#     Key(
+#         [mod, "control"],
+#         "f",
+#         lazy.layout.toggle_split(),
+#         desc="Toggle between split and unsplit sides of stack",
+#     ),
+#     Key([mod, "shift"], "f", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
+#     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
+#     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+#     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+# ]
+#
+# app_binds = [
+#     SpawnLaunching("b", browser),
+#     SpawnLaunching("t", terminal),
+#     SpawnLaunching("Return", "rofi -show drun -show-icons"),
+# ]
+#
+# keys.extend(create_app_binds(mod, app_binds))
+#
+# groups = [
+#     GroupBuilder(key = "z", name = "term", layout = "monadtall"),
+#     GroupBuilder(key = "x", name = "tv", layout ="monadtall"),
+#     GroupBuilder(key = "c", name ="www", layout = "monadtall"),
+#     GroupBuilder(key = "v", name = "music",layout = "monadtall"),
+# ]
+#
+#
+# keys.extend(create_group_keybindings(alt, groups))
+#
+# theme = {
+#   "border_focus": "#4B6A88",
+#   "border_width": 4,
+#   "border_normal": "#3E4451",
+#   "margin": 8,
+# }
+#
 widget_defaults = dict(
     font="sans",
     fontsize=12,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
-
+#
 # Drag floating layouts.
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),

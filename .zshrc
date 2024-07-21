@@ -14,6 +14,7 @@ typeset -U path cdpath fpath manpath
 # See https://github.com/nix-community/home-manager/issues/177.
 HISTSIZE="10000"
 SAVEHIST="10000"
+DISPLAY=:0
 
 HISTFILE="$HOME/.zsh_history"
 mkdir -p "$(dirname "$HISTFILE")"
