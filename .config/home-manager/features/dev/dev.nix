@@ -1,8 +1,8 @@
 { pkgs, inputs, ... }:
 {
   imports = [
-
     ./shell.nix
+    ./lf/lf.nix
   ];
   programs.eza = {
     enable = true;
@@ -37,15 +37,22 @@
     };
   };
 
+
+
   # GENERAL
   home.packages = with pkgs; [
     htop
     ripgrep
     stow
     fzf
-    ranger
   ];
 
-
-
+  programs.kitty = {
+    enable = true;
+    theme = "One Dark";
+    font = {
+      name = "Jetbrains Mono Nerd Font";
+      size = 12;
+    };
+  };
 }
