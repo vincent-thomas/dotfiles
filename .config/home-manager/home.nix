@@ -1,105 +1,65 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, lib, ... }:
 
 {
-  home.username = "vt";
-  home.homeDirectory = "/home/vt";
 
-  # DO NOT CHANGE
   home.stateVersion = "23.11";
 
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+  home.username = "vincent";
+  home.homeDirectory = "/home/vincent";
+
+  programs.home-manager.enable = true;
+
+  imports = [
+    ./features/firefox.nix
+  ];
 
   programs.eza = {
     enable = true;
-    icons = false;
+    icons = true;
   };
 
-  programs.zsh = {
-    enable = true;
-  };
-
-  programs.zoxide = {
-    enable = true;
-    enableZshIntegration = true;
-  };
+  # DEV SETUP
+  programs.neovim.enable = true;
+  programs.zellij.enable = true;
+  programs.starship.enable = true;
+  programs.zoxide.enable = true;
 
   programs.git = {
     enable = true;
     userName = "Vincent Thomas";
     userEmail = "77443389+vincent-thomas@users.noreply.github.com";
-
+    aliases = {
+      st = "status";
+    };
     extraConfig = {
       init = {
         defaultBranch = "main";
       };
-      url = {
-        "ssh://git@github.com/" = {
-          insteadOf = ["https://github.com/"];
-        };
-      };
     };
   };
 
-  programs.neovim = {
-    enable = true;
-  #  extraLuaConfig = builtins.readFile "${config.home.homeDirectory}/.config/home-manager/nvim/init.lua";
-#    extraConfig = builtins.readFile("${config.home.homeDirectory}/.config/home-manager/nvim/init.vim") ;
-  };
-
-  programs.zellij = {
-    enable = true;
-  };
-
+  # GENERAL
   home.packages = with pkgs; [
     htop
-    # Required by telescope
     ripgrep
-    bacon
-    rustup
-    nodejs_20
     stow
-    unzip
+    fzf
+    ranger
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
+  # DOTFILES
+  home.file = {};
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+  # Firefox
+
+  programs.firefox = {
+    enable = true;
+    profiles.vincent = {
+      extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
+        ublock-origin
+        sponsorblock
+        darkreader
+      ];
+    };
   };
-
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. jjjIf you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/vt/etc/profile.d/hm-session-vars.sh
-  #
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    v = "nvim";
-  };
-
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }

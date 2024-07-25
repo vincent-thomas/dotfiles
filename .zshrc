@@ -1,9 +1,8 @@
+if [ -e /home/vincent/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vincent/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 typeset -U path cdpath fpath manpath
 
 . ~/.cargo/env
-
-
 
 # calling it twice causes slight start up slowdown
 # as all $fpath entries will be traversed again.
@@ -19,6 +18,9 @@ DISPLAY=:0
 HISTFILE="$HOME/.zsh_history"
 mkdir -p "$(dirname "$HISTFILE")"
 
+LC_CTYPE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+
 # setopt HIST_FCNTL_LOCK
 # setopt HIST_IGNORE_DUPS
 # unsetopt HIST_IGNORE_ALL_DUPS
@@ -29,17 +31,10 @@ setopt SHARE_HISTORY
 
 export EDITOR="nvim"
 
-# Aliases
-alias ls='eza -l'
-
 alias v='nvim'
-alias vi='nvim'
 alias vim='nvim'
-alias gg='gitm go -- '
-alias cd="z"
 alias clear="clear && sh $HOME/scripts/colorscripts/colorscripts.sh --random"
 
-eval "$(zoxide init zsh)"
 
 if [[ $TERM != "dumb" ]]; then
   eval "$(starship init zsh)"
@@ -58,3 +53,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+export PATH=$PATH:/home/vincent/.spicetify
+
+eval "$(zoxide init zsh)"

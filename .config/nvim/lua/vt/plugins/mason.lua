@@ -19,7 +19,7 @@ return {
       conform.setup({
         formatters_by_ft = require("mason-bridge").get_formatters(),
         format_on_save = {
-          lsp_fallback = true,
+          lsp_fallback = false,
           async = false,
           timeout_ms = 500,
         },
@@ -43,15 +43,16 @@ return {
         local tb = require("telescope.builtin")
 
         -- Definition
-        vim.keymap.set("n", "<leader>dr", vim.lsp.buf.rename, opts)
-        vim.keymap.set("n", "<leader>dh", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "<leader>da", vim.lsp.buf.code_action, opts)
+        vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
+        vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, opts)
 
         -- Find
-        vim.keymap.set("n", "<leader>fi", tb.lsp_implementations, opts)
+        vim.keymap.set("n", "<leader>i", tb.lsp_implementations, opts)
+        vim.keymap.set("n", "<leader>R", tb.lsp_references, opts)
         vim.keymap.set("n", "<leader>fb", tb.buffers, opts)
-        vim.keymap.set("n", "<leader>fd", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "<leader>fe", tb.diagnostics, opts)
+        vim.keymap.set("n", "<leader>d", vim.lsp.buf.declaration, opts)
+        vim.keymap.set("n", "<leader>e", tb.diagnostics, opts)
       end)
     end,
   },

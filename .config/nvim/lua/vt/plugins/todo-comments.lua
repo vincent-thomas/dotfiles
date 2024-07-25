@@ -4,6 +4,6 @@ return {
   config = function()
     require("todo-comments").setup({})
 
-    vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>")
-  end
+    vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<cr>")
+  end,
 }

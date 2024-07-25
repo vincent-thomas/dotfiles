@@ -13,12 +13,12 @@ return {
         "markdown",
       },
       highlight = {
-        enable = true,
+        enable = false,
         additional_vim_regex_highlighting = false,
         enable_autocmd = false,
       },
-      sync_install = true,
-      indent = { enable = true },
+      sync_install = false,
+      indent = { enable = false },
     })
   end,
 }

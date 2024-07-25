@@ -276,10 +276,26 @@ pane_frames false
 //     }
 // }
 
+themes {
+    onedark {
+        fg 171 178 191
+        bg 40 44 52
+        black 30 33 37
+        red 224 108 117
+        green 152 195 121
+        yellow 229 192 123
+        blue 97 175 239
+        magenta 198 119 239
+        cyan 86 182 194
+        white 220 220 220
+        orange 245 192 110
+    }
+}
+
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-// theme "default"
+theme "onedark"
 
 // The name of the default layout to load on startup
 // Default: "default"

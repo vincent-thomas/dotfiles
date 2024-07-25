@@ -22,4 +22,3 @@ vim.opt.termguicolors = true
 
 vim.cmd("set number")
 vim.cmd("set noshowmode")
-vim.api.nvim_set_keymap("n", ";", ":", { noremap = true, silent = false })

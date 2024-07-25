@@ -2,7 +2,7 @@ return {
   "stevearc/dressing.nvim",
   event = "VeryLazy",
   config = function()
-    require("dressing").setup({
+    require("lua.vt.plugins.old.dressing").setup({
       select = {
         telescope = require("telescope.themes").get_dropdown(),
       },

@@ -1,4 +1,4 @@
-from libqtile.config import Click, Drag, Key, Match 
+from libqtile.config import Key
 from libqtile.lazy import lazy
 from core.configuration import mod1, mod2, terminal, browser, file_manager
 from utils.groups import GroupBuilder, create_group_keybindings

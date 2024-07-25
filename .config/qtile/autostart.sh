@@ -1,6 +1,6 @@
 #!/bin/bash
 picom &
-nitrogen --restore &
+nitrogen --random --set-zoom-fill ~/Wallpapers/ &
 sh ~/.config/polybar/launch.sh &
 
 # Polkit agent
