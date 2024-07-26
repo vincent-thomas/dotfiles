@@ -50,7 +50,7 @@ return {
         -- Find
         vim.keymap.set("n", "<leader>i", tb.lsp_implementations, opts)
         vim.keymap.set("n", "<leader>R", tb.lsp_references, opts)
-        vim.keymap.set("n", "<leader>fb", tb.buffers, opts)
+        vim.keymap.set("n", "<leader>b", tb.buffers, opts)
         vim.keymap.set("n", "<leader>d", vim.lsp.buf.declaration, opts)
         vim.keymap.set("n", "<leader>e", tb.diagnostics, opts)
       end)

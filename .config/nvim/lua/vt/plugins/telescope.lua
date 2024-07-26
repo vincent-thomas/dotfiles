@@ -1,19 +1,20 @@
 return {
-  "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  {
+    "nvim-telescope/telescope.nvim",
+    branch = "0.1.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
-    -- Extensions
-    "nvim-telescope/telescope-ui-select.nvim",
-  },
-  config = function()
-    local actions = require("vt.config.telescope")
+      -- Extensions
+      "nvim-telescope/telescope-ui-select.nvim",
+    },
+    config = function()
+      local actions = require("vt.config.telescope")
 
-    vim.keymap.set("n", "<leader>ff", actions.file_search, { desc = "Fuzzy find files in cwd" })
-    vim.keymap.set("n", "<leader>fg", actions.content_search, { desc = "Fuzzy find files in cwd" })
-    --[[     local telescope = require("telescope")
+      -- vim.keymap.set("n", "<leader>t", actions.file_search, { desc = "Fuzzy find files in cwd" })
+      vim.keymap.set("n", "<leader>g", actions.content_search, { desc = "Fuzzy find files in cwd" })
+      --[[     local telescope = require("telescope")
     local actions = require("telescope.actions")
 
     telescope.setup({
@@ -52,5 +53,26 @@ return {
     vim.keymap.set("n", "<leader>fb", t.buffers)
     -- Picker Theme
     vim.keymap.set("n", "<leader>pt", t.colorscheme) ]]
-  end,
+    end,
+  },
+  {
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -- calling `setup` is optional for customization
+      local fzf = require("fzf-lua")
+
+      fzf.setup()
+
+      local function find_files()
+        fzf.files({
+          previewer = false,
+          winopts = { row = 1, width = 0.5, height = 0.5 },
+        })
+      end
+
+      vim.keymap.set("n", "<leader>f", find_files)
+    end,
+  },
 }

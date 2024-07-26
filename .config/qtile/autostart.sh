@@ -1,5 +1,5 @@
 #!/bin/bash
-picom &
+picom --config .config/picom/picom-workaround.conf &
 nitrogen --random --set-zoom-fill ~/Wallpapers/ &
 sh ~/.config/polybar/launch.sh &
 

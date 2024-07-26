@@ -2,8 +2,9 @@
 {
   imports = [
     ./shell.nix
-    ./lf/lf.nix
+    ./yazi
   ];
+
   programs.eza = {
     enable = true;
     icons = true;
@@ -11,17 +12,12 @@
     git = true;
   };
 
+  programs.zellij.enable = true;
+  programs.zoxide.enable = true;
   programs.neovim = {
     enable = true;
     defaultEditor = true;
   };
-
-  programs.zellij.enable = true;
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-  programs.zoxide.enable = true;
 
   programs.git = {
     enable = true;
@@ -36,8 +32,6 @@
       };
     };
   };
-
-
 
   # GENERAL
   home.packages = with pkgs; [

@@ -22,3 +22,4 @@ vim.opt.termguicolors = true
 
 vim.cmd("set number")
 vim.cmd("set noshowmode")
+vim.cmd("set nocompatible")

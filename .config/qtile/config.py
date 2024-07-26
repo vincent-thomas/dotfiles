@@ -1,4 +1,4 @@
-from libqtile import  layout
+from libqtile import  layout, hook
 from libqtile.config import Click, Drag, Match 
 from libqtile.lazy import lazy
 import os
@@ -9,11 +9,15 @@ from core.screens import screens
 from core.theme import theme
 from core.configuration import mod1
 
+@hook.subscribe.startup_once
 def start_deps():
     home = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.Popen([home])
 
-start_deps()
+@hook.subscribe.client_new
+def assign_to_group(client):
+    if client.name == "Spotify Premium":
+        client.togroup(4)
 
 widget_defaults = dict(
     font="sans",

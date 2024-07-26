@@ -1,0 +1,14 @@
+add_newline = false
+format = "[$time](black) [>>](bright-black) $directory $character"
+
+[character]
+error_symbol = "[µ](red)"
+success_symbol = "[λ](yellow)"
+
+[directory]
+disabled = false
+format = "[$path](cyan)"
+
+[time]
+disabled = false
+format = "[$time](dimmed)"

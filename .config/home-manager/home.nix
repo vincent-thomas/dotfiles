@@ -11,8 +11,9 @@
 
   imports = [
     # inputs.nix-colors.homeManagerModules.default
-    ./features/firefox/firefox.nix
-    ./features/dev/dev.nix
+    ./features/firefox
+    ./features/dev
+    ./features/setup
     ./features/misc.nix
   ];
 
